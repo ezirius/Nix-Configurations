@@ -11,6 +11,10 @@ in
 {
   imports = [ ../Common/common-ezirius-home.nix ];
 
+  # Copy apps to ~/Applications for Spotlight indexing (replaces default linkApps)
+  targets.darwin.copyApps.enable = true;
+  targets.darwin.linkApps.enable = false;
+
   home.stateVersion = "24.11";
   home.username = username;
   home.homeDirectory = lib.mkForce homeDir;
